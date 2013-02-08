@@ -190,7 +190,7 @@ function wt_list($atts, $content){
  */
 function wt_divider($atts){
 	extract(shortcode_atts(array(
-		'size' => 'normal'			// In best case : ['huge', normal', 'big']
+		'size' => 'normal'
 		), $atts));
 
 	return "<div class='wt_divider wt_divider-". $size . "'></div>";
