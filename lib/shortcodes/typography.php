@@ -49,19 +49,25 @@ function wt_onethird_column($atts, $content) {
  * The color and variations of the button are not defined here,
  * but this shortcode give freedom for creating many diferent
  * buttons and variations
+ *
+ * ------------------------------------------------------------
+ * ALLOWED STYLES FOR THE BUTTONS
+ *
+ * primary
+ * warning
+ * danger
+ * success
+ * info
+ * inverse
  * 
  * @param array $atts Shortcode attributes
  * @return string Output html
  */
-function wt_buttons($atts){
+function wt_buttons($atts, $content = null){
 	extract( shortcode_atts( array(
-		'color' 			=> 'gray',
-		'shade' 			=> "solid",
-		'rounded_corners' 	=> "standart",
-		'url' 				=> "",
-		'text' 				=> "",
-		'size' 				=> "normal",
-		'animated'			=> 'no-animation'
+		'btn' 			=> '',
+		'size' 			=> '',
+		'block'			=> 'false'
 		), $atts) );
 
 	if($animated == 'true') {
@@ -70,9 +76,23 @@ function wt_buttons($atts){
 
 	$link = "<a href='";
 	$link .= $url;
-	$link .= "' class='btn btn-";
-	$link .= $color . " " . $size . " " . $shade . " " . $animated . " " . $rounded_corners . "' >";;
-	$link .= $text;
+	$link .= "' class='btn";		// Open class section
+
+	// Check if the button has some more properties.
+	if($type != '') {
+		$link .= ' btn-' . $type;
+	}
+
+	if($size != '') {
+		$link .= ' btn-' . $size;
+	}
+
+	if($block == 'true') {
+		$link .= ' btn-block';
+	}	
+
+	$link .= "'>";					// Close the class section
+	$link .= $content;
 	$link .= "</a>";
 
 	return $link;
@@ -208,4 +228,69 @@ function wt_label($atts, $content = null){
 		), $atts));
 
 	return "<span class='wt_label wt_label-". $color ."'>" . $content . "</span>";
+}
+
+/**
+ * Shortcode: Quote
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Output html
+ */
+function wt_quote($atts, $content = null){
+	extract(shortcode_atts(array(
+		'float' => 'none'
+		), $atts));
+
+	return "<blockquote class='wt_quote ". $float ."'>" . $content . "</blockquote>";
+}
+
+/**
+ * Shortcode: Dropcap
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Output html
+ */
+function wt_dropcap($atts, $content = null){
+	extract(shortcode_atts(array(
+		'style' => '1'
+		), $atts));
+
+	$class = "dropcap-" . $style ;
+
+	return "<span class='wt_dropcap ". $class ."'>" . $content . "</span>";
+}
+
+/**
+ * Shortcode: Modal Window [bootstrap]
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Output html
+ */
+function wt_modal_window($atts, $content = null){
+	extract(shortcode_atts( array(
+		'btn'		=> '',
+		'btn_text' 	=> 'Click me',
+		'title'		=> ''
+		), $atts ));
+
+	if ($btn != '') {
+		$btn = 'btn-' . $btn;
+	}
+
+	$modal_ID = randomString();	
+	// $modal_ID = "modal";
+	$button = "<a href='#$modal_ID' class='btn $btn' data-toggle='modal' data-target='#$modal_ID'>$btn_text</a>";
+
+	$modal = $button;
+	$modal .= "<div id='$modal_ID' class='modal hide'>";
+	$modal .=   	"<div class='modal-header'>";
+	$modal .=	    "<button type='button' class='close' data-dismiss='modal' aria-hidden='true'>&times;</button>";
+	$modal .=	    "<h3>$title</h3>";
+	$modal .=    "</div>";
+	$modal .=	    "<div class='modal-body'>";
+	$modal .=	    "$content";
+	$modal .=    "</div>";
+    $modal .= "</div>";
+
+	return $modal;
 }
