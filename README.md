@@ -10,12 +10,12 @@ AIOShortcodes
 
 
 # Description
----------------------------------------
+***
 AIOShortcodes is WordPress plugin created by Alexander Dimitrov and Georgi Canev. The main purpose of the plugin is allowing easy use of web elements. No need of programing is needed, only typing the shortcodes in the WordPress editor.
 
 
 # Installation
----------------------------------------
+***
 This section describes how to install the plugin and get it working.
 
 e.g.
@@ -25,7 +25,7 @@ e.g.
 
 
 # Changelog 
----------------------------------------
+***
 ### v1.1 
 * Partial Bootstrap support. Only small part of the bootstrap CSS is being added to the plugin.
 * Modal window support with 3 shortcode properties.
@@ -35,7 +35,9 @@ e.g.
 
 
 # All shortcodes listed 
----------------------------------------
+***
+
+### Typography
 `[hr]`
 `[btn]`
 `[highlight]`
@@ -48,3 +50,9 @@ e.g.
 `[quote]`
 `[dropcap]`
 `[modal]`
+
+### Queries
+`[posts_recent]`
+`[the_authors]`
+`[showmenu]`
+`[post_author_info]`
