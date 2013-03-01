@@ -11,7 +11,7 @@
  * TYPOGRAPHY.PHP
  * ============================================================ */
 add_shortcode("hr", 			"wt_horizontal_line");
-add_shortcode("one-third", 		"wt_onethird_column");
+// add_shortcode("one-third", 		"wt_onethird_column");
 add_shortcode("btn", 			"wt_buttons");
 add_shortcode("highlight", 		"wt_highlight");
 add_shortcode("infobox", 		"wt_infobox");
@@ -23,6 +23,7 @@ add_shortcode("label", 			"wt_label");
 add_shortcode("quote", 			"wt_quote");
 add_shortcode("dropcap", 		"wt_dropcap");
 add_shortcode("modal",			"wt_modal_window");
+add_shortcode("progress",		"wt_progress");
 
 /* ============================================================
  * QUERIES.PHP

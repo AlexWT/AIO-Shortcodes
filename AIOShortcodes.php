@@ -23,12 +23,10 @@ include_once('lib/shortcodes/init.php');		// The place where all shoertcodes sta
 
 function wt_init(){
 	// Add the basic stylings for the plugin
-	wp_register_style('aio-shortcodes', wt_plugin_directory() . '/lib/css/aio-shortcodes.css');	
-	wp_register_style('bootstrap', wt_plugin_directory() . '/lib/css/bootstrap-cutted.css');	
+	wp_register_style('style', wt_plugin_directory() . '/lib/css/style.min.css');	
 
 	// Add them in the head
-	wp_enqueue_style( 'aio-shortcodes' );
-	wp_enqueue_style( 'bootstrap' );
+	wp_enqueue_style( 'style' );
 
 	enqueue_scripts();
 }

@@ -70,17 +70,13 @@ function wt_buttons($atts, $content = null){
 		'block'			=> 'false'
 		), $atts) );
 
-	if($animated == 'true') {
-		$animated = 'animated';
-	} else $animated = 'no-animation';
-
 	$link = "<a href='";
 	$link .= $url;
 	$link .= "' class='btn";		// Open class section
 
 	// Check if the button has some more properties.
-	if($type != '') {
-		$link .= ' btn-' . $type;
+	if($btn != '') {
+		$link .= ' btn-' . $btn;
 	}
 
 	if($size != '') {
@@ -111,7 +107,7 @@ function wt_highlight($atts, $content) {
 		), $atts));
 
 	$highlight = "<span class='highlight-". $color ."'>";
-	$highlight .= $content;
+	$highlight .= do_shortcode($content);
 	$highlight .= "</span>";
 
 	return $highlight;
@@ -132,7 +128,7 @@ function wt_infobox($atts, $content) {
 		), $atts));
 
 	$box = "<div class='infobox " . $color . " " . $size . " " . $type . "'>";
-	$box .= $content;
+	$box .= do_shortcode($content);
 	$box .= "</div>";
 
 	return $box;
@@ -162,7 +158,7 @@ function wt_pricetable($atts, $content) {
 	$table .= "<h2>" . $title . "</h2>";						// Title of the table
 	$table .= "<span class='price'>" . $price . "</span>";		// The price of the plan
 	$table .= "<span class='period'>" . $period . "</span>"; 	// For what time? Pay for year / month or?
-	$table .= "<div class='content'>" . $content . "</div>";	// The list (this is list from the editot 
+	$table .= "<div class='content'>" . do_shortcode($content) . "</div>";	// The list (this is list from the editot 
 	$table .= "<a href='". $btn_link ."' ";						// Create the button
 	$table .= "class='btn btn-" . $btn_color .  "'>";			// Add classes
 	$table .= $btn_content . "</a>";							// The text and close the link
@@ -199,7 +195,7 @@ function wt_list($atts, $content){
 		'style' => 'normal'
 		), $atts));
 
-	return "<div class='" . $style . "'>" . $content . "</div>";
+	return "<div class='" . $style . "'>" . do_shortcode($content) . "</div>";
 }
 
 /**
@@ -224,10 +220,14 @@ function wt_divider($atts){
  */
 function wt_label($atts, $content = null){
 	extract(shortcode_atts(array(
-		'color' => 'gray'
+		'label' => ''
 		), $atts));
 
-	return "<span class='wt_label wt_label-". $color ."'>" . $content . "</span>";
+	if($label != '') {
+		$label = "label-$label";
+	}
+
+	return "<span class='label $label'>" . $content . "</span>";
 }
 
 /**
@@ -238,10 +238,15 @@ function wt_label($atts, $content = null){
  */
 function wt_quote($atts, $content = null){
 	extract(shortcode_atts(array(
-		'float' => 'none'
+		'float' 	=> 'none',
+		'source' 	=> ''
 		), $atts));
 
-	return "<blockquote class='wt_quote ". $float ."'>" . $content . "</blockquote>";
+	if($source != '') {
+		$source = "<small>$source</small>";
+	}
+
+	return "<blockquote class='wt_quote $float'> " . do_shortcode($content) . " $source</blockquote>";
 }
 
 /**
@@ -262,7 +267,8 @@ function wt_dropcap($atts, $content = null){
 
 /**
  * Shortcode: Modal Window [bootstrap]
- * 
+ *
+ * @param string $content modal content
  * @param array $atts Shortcode attributes
  * @return string Output html
  */
@@ -288,9 +294,34 @@ function wt_modal_window($atts, $content = null){
 	$modal .=	    "<h3>$title</h3>";
 	$modal .=    "</div>";
 	$modal .=	    "<div class='modal-body'>";
-	$modal .=	    "$content";
+	$modal .=	    do_shortcode($content);
 	$modal .=    "</div>";
     $modal .= "</div>";
 
 	return $modal;
+}
+
+/**
+ * Shortcode: Progress Bar
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Output html
+ */
+function wt_progress($atts) {
+	extract(shortcode_atts(array(
+		'progress' 	=> '50',
+		'type' 		=> ''
+		), $atts));
+
+	$progress = $progress . "%";
+
+	if($type != '') {
+		$type = "progress-$type";
+	}
+
+	$bar = "<div class='progress $type'>";
+	$bar .= "	<div class='bar' style='width: $progress'></div>";
+	$bar .= "</div>";
+
+	return $bar;
 }
