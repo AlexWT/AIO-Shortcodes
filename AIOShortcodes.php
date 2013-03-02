@@ -3,7 +3,7 @@
 /*
 	Plugin name: AIO Shortcodes
 	Description: Universal plugin specifically for the purpouse of WellThemes team. The reason for it is the repeatitive use of shortcodes with similar structures. This plugin will be closed to public and used specialy for the themes we create. In future it might be offered for sale at the company site or integrated into our themes. 
-	Version: 1.1
+	Version: 1.2
 	Author: Alexander Dimitrov, Georgi Canev, Sami Chaudhary
 	Author URI: http://wellthemes.com
 */
