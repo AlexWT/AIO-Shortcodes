@@ -387,3 +387,16 @@ function wt_video_player($atts, $content = null) {
 
 	return $container;
 }
+
+/**
+ * Shortcode: Icons
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Output html
+ */
+function wt_icons($atts) {
+	extract(shortcode_atts(array(
+		'type' => '',
+		), $atts));
+	return "<i class='icon-$type'></i>";
+}
