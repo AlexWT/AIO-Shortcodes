@@ -29,6 +29,7 @@ e.g.
 ### v1.2 
 * Added grid system inside posts. It is fluid, so look perfect in all possible responsive grid frameworks.
 * Added progress bar shortcode
+* Added responsive video support. No need to specify the video player, its automaticly picked from the ID.
 * Fixed highlight shortcode. 
 
 ### v1.1 

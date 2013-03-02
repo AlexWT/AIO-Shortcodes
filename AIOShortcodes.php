@@ -37,5 +37,6 @@ add_action( 'init', 'wt_init', 5 );
 
 function enqueue_scripts() {
 	wp_enqueue_script('bootstrap', plugins_url('js/bootstrap.min.js', __FILE__), array('jquery'), '1.0', true);
+	wp_enqueue_script('responsive-videos', plugins_url('js/videos.js', __FILE__), array('jquery'), '1.0', true);
 }    
 add_action('wp_enqueue_scripts', 'enqueue_scripts');

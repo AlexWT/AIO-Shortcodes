@@ -353,3 +353,37 @@ function wt_progress($atts) {
 	return $bar;
 }
 
+/**
+ * Shortcode: Video Player
+ * 
+ * @param array $atts Shortcode attributes
+ * @return string Output html
+ */
+function wt_video_player($atts, $content = null) {
+	extract(shortcode_atts(array(
+		'fullwidth' => 'true',
+		'width'		=> '100%',
+		'height'	=> '420',
+		'id'		=> ''
+		), $atts));
+
+	// Check what is the player acording the ID.
+	if(preg_match("/^[0-9]+$/", $id, $matches)) {
+		$player = vimeo;
+	}
+
+	switch ($player) {
+		case 'vimeo':
+			$video = "<iframe src='http://player.vimeo.com/video/$id?title=0&amp;byline=0&amp;portrait=0&amp;color=4584be' width='$width' height='$height' frameborder='0' webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>";
+			break;
+		
+		default:
+			// The default value is YouTube
+			$video = "<iframe width='$width' height='$height' src='http://youtube.com/embed/". $id ."' frameborder='0' allowfullscreen></iframe>";
+			break;
+	}
+
+	$container = "<div class='wt-container-fluid'>$video</div>";
+
+	return $container;
+}

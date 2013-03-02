@@ -29,6 +29,8 @@ add_shortcode("quote", 			"wt_quote");
 add_shortcode("dropcap", 		"wt_dropcap");
 add_shortcode("modal",			"wt_modal_window");
 add_shortcode("progress",		"wt_progress");
+add_shortcode("video",			"wt_video_player");
+
 
 /* ============================================================
  * QUERIES.PHP
