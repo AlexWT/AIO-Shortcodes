@@ -26,3 +26,16 @@ function randomString($length = 6) {
 
 	return $str;
 }
+
+/**
+ * Generate row
+ *
+ * @return string 
+ */
+function bootstrap_row($type) {
+	if( !isset($type) ) {
+		$type = '-' . $type;
+	}
+
+	
+}

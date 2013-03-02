@@ -32,15 +32,42 @@ function wt_horizontal_line($atts) {
  * @param array $atts Shortcode attributes
  * @return string Output html
  */
-function wt_onethird_column($atts, $content) {
-	extract( shortcode_atts( array(
-		'last' => false
-		), $atts ) );
-	$return = "<div class='column one-third";
-	$last ? $return .= " last'>" : $return.= "'>";
-	$return .= $content . "</div>";
+function wt_onethird($atts, $content = null) {
+	return "<div class='span4'>". do_shortcode($content) ."</div>";
+}
 
-	return $return;
+/**
+ * Shortcode: One Half
+ *
+ * @return string Output html
+ */
+function wt_onehalf($atts, $content = null) {
+	return "<div class='span6'>". do_shortcode($content) ."</div>";
+}
+
+/**
+ * Shortcode: Two Thirds
+ *
+ * @return string Output html
+ */
+function wt_twothird($atts, $content = null) {
+	return "<div class='span8'>". do_shortcode($content) ."</div>";
+}
+
+/**
+ * Shortcode: Columns wrapper
+ *
+ * @return string Output html
+ */
+function wt_columns($atts, $content = null) {
+
+	$column = "<div class='wt-container-fluid'>";
+	$column .= "	<div class='wt-row-fluid'>";
+	$column .= 			do_shortcode($content);
+	$column .= "	</div>";
+	$column .= "</div>";
+
+	return $column;
 }
 
 /**
@@ -325,3 +352,4 @@ function wt_progress($atts) {
 
 	return $bar;
 }
+

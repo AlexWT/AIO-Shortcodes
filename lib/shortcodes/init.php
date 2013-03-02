@@ -11,7 +11,12 @@
  * TYPOGRAPHY.PHP
  * ============================================================ */
 add_shortcode("hr", 			"wt_horizontal_line");
-// add_shortcode("one-third", 		"wt_onethird_column");
+
+add_shortcode("columns",		"wt_columns");			// 1/1
+add_shortcode("half",	 		"wt_onehalf");			// 1/2
+add_shortcode("third",	 		"wt_onethird");			// 1/3
+add_shortcode("two_thirds",		"wt_twothird");			// 2/3
+
 add_shortcode("btn", 			"wt_buttons");
 add_shortcode("highlight", 		"wt_highlight");
 add_shortcode("infobox", 		"wt_infobox");

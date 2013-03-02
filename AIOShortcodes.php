@@ -23,11 +23,14 @@ include_once('lib/shortcodes/init.php');		// The place where all shoertcodes sta
 
 function wt_init(){
 	// Add the basic stylings for the plugin
-	wp_register_style('style', wt_plugin_directory() . '/lib/css/style.min.css');	
+	wp_register_style('style', wt_plugin_directory() . '/lib/css/style.css');
+	wp_register_style('respo', wt_plugin_directory() . '/lib/css/responsive.css');		
 
 	// Add them in the head
 	wp_enqueue_style( 'style' );
+	wp_enqueue_style( 'respo' );
 
+	// Load the javascript (in this case bootstrap but we can load any other with the same function)
 	enqueue_scripts();
 }
 add_action( 'init', 'wt_init', 5 );

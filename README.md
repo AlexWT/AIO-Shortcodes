@@ -26,6 +26,11 @@ e.g.
 
 # Changelog 
 ---
+### v1.2 
+* Added grid system inside posts. It is fluid, so look perfect in all possible responsive grid frameworks.
+* Added progress bar shortcode
+* Fixed highlight shortcode. 
+
 ### v1.1 
 * Partial Bootstrap support. Only small part of the bootstrap CSS is being added to the plugin.
 * Modal window support with 3 shortcode properties.
@@ -50,6 +55,12 @@ e.g.
 `[quote]`
 `[dropcap]`
 `[modal]`
+
+#### For columns
+`[columns]`
+`[third]`
+`[half]`
+`[two_third]`
 
 ### Queries
 `[posts_recent]`
