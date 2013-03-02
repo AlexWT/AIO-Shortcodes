@@ -26,6 +26,11 @@ e.g.
 
 # Changelog 
 ---
+
+### v1.3
+* Added Icons support (over 250 icons)
+* Added Shortcode Importer in the post editor.
+
 ### v1.2 
 * Added grid system inside posts. It is fluid, so look perfect in all possible responsive grid frameworks.
 * Added progress bar shortcode
