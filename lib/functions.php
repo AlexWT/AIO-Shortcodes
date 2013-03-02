@@ -27,15 +27,29 @@ function randomString($length = 6) {
 	return $str;
 }
 
-/**
- * Generate row
- *
- * @return string 
- */
-function bootstrap_row($type) {
-	if( !isset($type) ) {
-		$type = '-' . $type;
-	}
-
-	
+add_action('media_buttons','add_sc_select',11);
+function add_sc_select(){
+    global $shortcode_tags;
+    /** Any Shortcodes that should be excluded from this list should be added below */
+    $exclude = array("wp_caption", "embed");
+    echo '<select style="float:right;margin-right:-80px;position:relative;top:45px;height:30px;" id="sc_select">
+    <option>Select Shortcode...</option>';
+    foreach ($shortcode_tags as $key => $val){
+            if(!in_array($key,$exclude)){
+            $shortcodes_list .= '<option value="['.$key.'][/'.$key.']">'.$key.'</option>';
+            }
+        }
+     echo $shortcodes_list;
+     echo '</select>';
+}
+add_action('admin_head', 'button_js');
+function button_js() {
+    echo '<script type="text/javascript">
+    jQuery(document).ready(function(){
+        jQuery("#sc_select").change(function() {
+            send_to_editor(jQuery("#sc_select :selected").val());
+                return false;
+            });
+        });
+    </script>';
 }
