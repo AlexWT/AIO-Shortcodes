@@ -10,7 +10,7 @@
 /* ============================================================
  * TYPOGRAPHY.PHP
  * ============================================================ */
-add_shortcode("hr", 			"wt_horizontal_line");
+add_shortcode("hr",   		"wt_horizontal_line");
 
 add_shortcode("columns",		"wt_columns");			// 1/1
 add_shortcode("half",	 		"wt_onehalf");			// 1/2
@@ -30,7 +30,7 @@ add_shortcode("dropcap", 		"wt_dropcap");
 add_shortcode("modal",			"wt_modal_window");
 add_shortcode("progress",		"wt_progress");
 add_shortcode("video",			"wt_video_player");
-
+add_shortcode("icon",			"wt_icons");
 
 /* ============================================================
  * QUERIES.PHP
