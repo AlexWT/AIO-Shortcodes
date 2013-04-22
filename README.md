@@ -26,6 +26,10 @@ e.g.
 
 # Changelog 
 ---
+### v2.0
+* All the code is rewriten from functional based to object-orientated
+* More organized load of the plugin 
+* Added flexability for new features
 
 ### v1.3
 * Added Icons support (over 250 icons)
@@ -43,33 +47,3 @@ e.g.
 * Readme File
 * Previous buttons styling.
 * Buttons take only 3 properties now and work properly in all cases.
-
-
-# All shortcodes listed 
----
-
-### Typography
-`[hr]`
-`[btn]`
-`[highlight]`
-`[infobox]`
-`[price]`
-`[googlemap]`
-`[list]`
-`[divider]`
-`[label]`
-`[quote]`
-`[dropcap]`
-`[modal]`
-
-#### For columns
-`[columns]`
-`[third]`
-`[half]`
-`[two_third]`
-
-### Queries
-`[posts_recent]`
-`[the_authors]`
-`[showmenu]`
-`[post_author_info]`

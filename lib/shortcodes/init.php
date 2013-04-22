@@ -7,35 +7,42 @@
 // to remove some shortcode, just comment the line below.
 
 
-/* ============================================================
- * TYPOGRAPHY.PHP
- * ============================================================ */
-add_shortcode("hr",   		"wt_horizontal_line");
+class ShortcodesInit{
+	/* ============================================================
+	 * TYPOGRAPHY.PHP
+	 * ============================================================ */
 
-add_shortcode("columns",		"wt_columns");			// 1/1
-add_shortcode("half",	 		"wt_onehalf");			// 1/2
-add_shortcode("third",	 		"wt_onethird");			// 1/3
-add_shortcode("two_thirds",		"wt_twothird");			// 2/3
+	public function __construct() {
+		$this->add_shortcodes();
+	}
 
-add_shortcode("btn", 			"wt_buttons");
-add_shortcode("highlight", 		"wt_highlight");
-add_shortcode("infobox", 		"wt_infobox");
-add_shortcode("price-table", 	"wt_pricetable");
-add_shortcode("googlemap", 		"wt_googlemal");
-add_shortcode("list", 			"wt_list");
-add_shortcode("divider", 		"wt_divider");
-add_shortcode("label", 			"wt_label");
-add_shortcode("quote", 			"wt_quote");
-add_shortcode("dropcap", 		"wt_dropcap");
-add_shortcode("modal",			"wt_modal_window");
-add_shortcode("progress",		"wt_progress");
-add_shortcode("video",			"wt_video_player");
-add_shortcode("icon",			"wt_icons");
+	public function add_shortcodes() {
+		$shortcodes = new ShortcodesTypography();
+		add_shortcode("hr", 			array($shortcodes, "wt_horizontal_line") );
+		add_shortcode("columns",		array($shortcodes, "wt_columns") );			// 1/1
+		add_shortcode("half",	 		array($shortcodes, "wt_onehalf") );			// 1/2
+		add_shortcode("third",	 		array($shortcodes, "wt_onethird") );			// 1/3
+		add_shortcode("two_thirds",		array($shortcodes, "wt_twothird") );			// 2/3
+		add_shortcode("btn", 			array($shortcodes, "wt_buttons") );
+		add_shortcode("highlight", 		array($shortcodes, "wt_highlight") );
+		add_shortcode("infobox", 		array($shortcodes, "wt_infobox") );
+		add_shortcode("price-table", 	array($shortcodes, "wt_pricetable") );
+		add_shortcode("googlemap", 		array($shortcodes, "wt_googlemal") );
+		add_shortcode("list", 			array($shortcodes, "wt_list") );
+		add_shortcode("divider", 		array($shortcodes, "wt_divider") );
+		add_shortcode("label", 			array($shortcodes, "wt_label") );
+		add_shortcode("quote", 			array($shortcodes, "wt_quote") );
+		add_shortcode("dropcap", 		array($shortcodes, "wt_dropcap") );
+		add_shortcode("modal",			array($shortcodes, "wt_modal_window") );
+		add_shortcode("progress",		array($shortcodes, "wt_progress") );
+		add_shortcode("video",			array($shortcodes, "wt_video_player") );
+		add_shortcode("icon",			array($shortcodes, "wt_icons") );
+		
+		add_shortcode("posts_recent", 		array($shortcodes,"wt_get_recent_posts_list") );
+		add_shortcode("the_authors", 		array($shortcodes,"wt_authors") );
+		add_shortcode("showmenu", 			array($shortcodes,"wt_wp_menu") );
+		add_shortcode("post_author_info", 	array($shortcodes,"wt_author_info") );
+	}
 
-/* ============================================================
- * QUERIES.PHP
- * ============================================================ */
-add_shortcode("posts_recent", 		"wt_get_recent_posts_list");
-add_shortcode("the_authors", 		"wt_authors");
-add_shortcode("showmenu", 			"wt_wp_menu");
-add_shortcode("post_author_info", 	"wt_author_info");
+}
+$typography = new ShortcodesInit();
